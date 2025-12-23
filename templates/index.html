@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="menu-list">
+  {% for item in items %}
+  <div class="menu-item fade-in">
+    <div class="menu-head">
+      <div class="emoji">{{ item.emoji }}</div>
+      <h3 class="name">{{ item.name }}</h3>
+    </div>
+
+    {% if item.image %}
+      <img src="/{{ item.image }}" alt="{{ item.name }}"
+           style="width:100%;max-height:160px;object-fit:cover;border-radius:12px;margin-top:10px;">
+    {% endif %}
+
+    <textarea class="desc-input"
+              placeholder="Tulis deskripsi kamu tentang {{ item.name }}..."
+              data-id="{{ item.id }}">{{ item.desc }}</textarea>
+
+    <div class="rating-row">
+      <div class="stars" data-id="{{ item.id }}">
+        {% for i in range(1,6) %}
+        <span class="star {% if i <= item.rating %}filled{% endif %}" data-value="{{ i }}">★</span>
+        {% endfor %}
+      </div>
+      <small>{{ item.rating }}/5</small>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

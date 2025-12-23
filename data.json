@@ -1,0 +1,74 @@
+[
+  {
+    "desc": "seblack nya pedas tapi nagihh🤯\n\n\n\n",
+    "emoji": "🥘",
+    "id": "434f9a1b-7db3-42f0-b313-2967f4ab38aa",
+    "image": "static/uploads/thai-food-tom-yum-kung-river-prawn-spicy-soup.jpg",
+    "name": "seblak",
+    "rating": 4.0
+  },
+  {
+    "id": "221bd2dd-b4d8-4353-ba17-e1e0475b3045",
+    "emoji": "🍚",
+    "name": "nasi goreng",
+    "desc": "enak nasi goreng nya, cuman yaa seperti nasi goreng biasa si😍",
+    "rating": 5.0,
+    "image": "static/uploads/american-shrimp-fried-rice-served-with-chili-fish-sauce-thai-food.jpg"
+  },
+  {
+    "id": "93cc44e5-0fc3-4235-b356-1e2afdf1c4c5",
+    "emoji": "🍦",
+    "name": "Almond w ice-cream",
+    "desc": "enak si but mahal, ga cocok buat kaum mendang mending\n\n\n",
+    "rating": 4.0,
+    "image": "static/uploads/unduhan_1.jpeg"
+  },
+  {
+    "id": "0c8a5224-3a20-4e17-9943-3a86dbef1691",
+    "emoji": "",
+    "name": "wonton",
+    "desc": "enak bgt, wajib cobain si ini kalian😝",
+    "rating": 5.0,
+    "image": "static/uploads/flat-lay-japanese-dumplings-assortment.jpg"
+  },
+  {
+    "id": "40cc0058-ed2c-47cf-9bbb-5bf233b4d43b",
+    "emoji": "🍕",
+    "name": "pizza",
+    "desc": "barusan beli tadi, enak bgtds buatan kakak🤭🤭",
+    "rating": 5.0,
+    "image": "static/uploads/pizza-pizza-filled-with-tomatoes-salami-olives.jpg"
+  },
+  {
+    "id": "fde256e1-718b-4499-9429-b620e30ad106",
+    "emoji": "🍔",
+    "name": "burger",
+    "desc": "enak bgt burger nya\n",
+    "rating": 3.0,
+    "image": "static/uploads/The_Best_Grilled_Chicken_Burger_with_Korean_BBQ_Sauce_Recipe_Salted_Mint.jpeg"
+  },
+  {
+    "id": "a0771eee-c089-44d3-a316-2bd5db49da86",
+    "emoji": "🥟",
+    "name": "cireng ayam suwir",
+    "desc": "",
+    "rating": 0,
+    "image": "static/uploads/Cireng_isi_Homemade.jpeg"
+  },
+  {
+    "id": "1a19d7a2-c7e5-4352-b7c4-1e8c7b196b9e",
+    "emoji": "🍹",
+    "name": "Hazelnut Ice Coffe",
+    "desc": "",
+    "rating": 0,
+    "image": "static/uploads/Hazelnut_Iced_Coffee_Recipe_-_Petite_Panini.jpeg"
+  },
+  {
+    "id": "a307feae-1100-495d-ac03-78b9e124a9c7",
+    "emoji": "☕",
+    "name": "Hot Cappucino",
+    "desc": "",
+    "rating": 0,
+    "image": "static/uploads/Cappuccino.jpeg"
+  }
+]

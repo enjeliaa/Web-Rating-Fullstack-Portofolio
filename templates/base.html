@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>web.rating kedaienjel</title>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/706/706164.png">
+
+  <!-- Import font -->
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      /* 🎨 Palet Warna */
+      --bg: #fffaf2;        /* Cream Putih */
+      --card: #f9edd9;      /* Latte Beige */
+      --text: #4b3d2d;      /* Coklat Kopi */
+      --accent: #d7b89c;    /* Karamel */
+      --border: #e6d6b5;    /* Beige muda */
+      --hover: #f8e4cc;     /* Soft Pink */
+
+      /* Tambahan untuk role */
+      --admin-gradient: linear-gradient(135deg, #8b6b4a, #f9edd9);
+      --user-gradient: linear-gradient(135deg, #8b6b4a, #fffaf2);
+    }
+
+    body {
+      font-family: 'Raleway', Quicksand;
+      margin: 0;
+      padding: 0;
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: var(--bg);
+      animation: fadeIn 0.7s ease;
+    }
+
+    /* Tema admin dan user */
+    body.user {
+      background: var(--user-gradient);
+    }
+
+    body.admin {
+      background: var(--admin-gradient);
+    }
+
+    /* 🌟 Header Sticky */
+    header {
+      width: 100%;
+      padding: 18px 0;
+      text-align: center;
+      font-size: 1.6em;
+      font-weight: 700;
+      color: var(--text);
+      background: var(--card);
+      border-bottom: 2px solid var(--border);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    body.user header {
+      background: linear-gradient(90deg, #fffaf2, #f9edd9);
+    }
+
+    body.admin header {
+      background: linear-gradient(90deg, #f9edd9, #fffaf2);
+    }
+
+    /* 🌿 List Menu */
+    .menu-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+      gap: 24px;
+      justify-content: center;
+      margin: 40px auto;
+      padding: 0 20px;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    /* 🍮 Card Menu */
+    .menu-item {
+      background: var(--card);
+      width: 93%;
+      height: 335px;
+      border-radius: 16px;
+      border: 2px solid var(--border);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      position: relative;
+    }
+
+    .menu-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+      border-color: var(--hover);
+    }
+
+    .menu-img {
+      width: 100%;
+      height: 55%;
+      object-fit: cover;
+      border-bottom: 2px dashed var(--border);
+    }
+
+    .menu-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 10px 16px 14px;
+    }
+
+    .menu-head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 1.1em;
+    }
+
+    .emoji { font-size: 1.8em; }
+    .name { margin: 0; }
+
+    .desc-input {
+      width: 100%;
+      margin-top: 8px;
+      padding: 8px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      resize: none;
+      font-size: 0.95em;
+      background: #fffdf9;
+      transition: border 0.3s, box-shadow 0.3s;
+      color: var(--text);
+    }
+
+    .desc-input:focus {
+      border-color: var(--accent);
+      outline: none;
+      box-shadow: 0 0 0 3px #d7b89c3a;
+    }
+
+    .rating-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 8px;
+    }
+
+    .stars {
+      font-size: 30px;
+      cursor: pointer;
+    }
+
+    .star {
+      color: #A9A9A9;
+      transition: transform 0.2s, color 0.3s;
+    }
+
+    .star:hover { transform: scale(1.2); }
+    .star.filled { color: #ffca28; text-shadow: 0 0 3px #ffd54f; }
+
+    .controls {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    /* 🍮 Tombol */
+    .btn {
+      border: none;
+      cursor: pointer;
+      padding: 10px 15px;
+      border-radius: 10px;
+      color: var(--text);
+      font-weight: 600;
+      background: var(--accent);
+      transition: transform 0.2s, background 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      background: var(--hover);
+    }
+
+    .btn.danger {
+      background: #cbb79d;
+    }
+
+    footer {
+      text-align: center;
+      padding: 16px;
+      color: var(--text);
+      opacity: 0.8;
+      font-size: 0.9em;
+      border-top: 1px solid var(--border);
+      width: 100%;
+      background: var(--card);
+      margin-top: auto;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(10px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+
+<body class="{{ role }}">
+  {% if role == 'admin' %}
+    <header>👑 Dashboard Admin Kedaienjel</header>
+  {% else %}
+    <header>-JajanScore ⭐ Enjel’s Café – Tempat Rasa & Cerita Bertemu</header>
+  {% endif %}
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer>
+    {% if role == 'admin' %}
+      © 2025 ☕ www.panel.admin.kedaienjel
+    {% else %}
+      © 2025 🍮 www.rating.enjel’s café - tempat rasa & cerita bertemu
+    {% endif %}
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

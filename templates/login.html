@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="menu-item" style="max-width:400px;margin:auto;text-align:center;">
+  <h3>🔐 Login Admin</h3>
+  <form method="POST">
+    <input type="text" name="username" placeholder="Username" required style="margin-bottom:10px;width:100%;padding:8px;border-radius:8px;border:1px solid rgba(0,0,0,0.06)">
+    <input type="password" name="password" placeholder="Password" required style="margin-bottom:10px;width:100%;padding:8px;border-radius:8px;border:1px solid rgba(0,0,0,0.06)">
+    <button class="btn add" type="submit">Masuk</button>
+  </form>
+  {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <div class="flash-wrap" style="margin-top:10px;">
+      {% for cat, msg in messages %}
+        <div class="flash {{ cat }}">{{ msg }}</div>
+      {% endfor %}
+    </div>
+  {% endif %}
+  {% endwith %}
+</div>
+{% endblock %}
+

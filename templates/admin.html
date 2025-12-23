@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- Form tambah diletakkan di luar .menu-list agar muncul di bawah judul -->
+<section class="add-form fade-in" style="margin: 15px auto; max-width: 480px; text-align:center;">
+  <form method="POST" action="/admin/add" enctype="multipart/form-data" style="display:flex; gap:8px; justify-content:center; align-items:center; flex-wrap:wrap; background:var(--card); padding:12px 16px; border-radius:14px; box-shadow:0 1px 4px rgba(0,0,0,0.08);">
+    <input name="emoji" placeholder="🛎️" style="width:60px;text-align:center;border-radius:8px;padding:6px;border:1px solid rgba(0,0,0,0.08)">
+    <input name="name" placeholder="Nama makanan..." required style="flex:1;min-width:140px;border-radius:8px;padding:6px;border:1px solid rgba(0,0,0,0.08)">
+    <input type="file" name="image" accept="image/*" style="font-size:11px;max-width:150px;">
+    <button type="submit" class="btn add" style="padding:6px 10px;font-size:13px;">Tambah</button>
+  </form>
+</section>
+
+<!-- Daftar makanan admin -->
+<div class="menu-list" style="margin-top: 10px;">
+
+  {% for item in items %}
+  <div class="menu-item fade-in" style="background:var(--card);padding:10px;border-radius:16px;box-shadow:0 1px 4px rgba(0,0,0,0.08);margin-bottom:15px;">
+    <form method="POST" action="/admin/edit/{{ item.id }}" enctype="multipart/form-data">
+      <div class="menu-head" style="display:flex;gap:8px;align-items:center;">
+        <input name="emoji" value="{{ item.emoji }}" style="width:60px;text-align:center;border-radius:8px;padding:6px;border:1px solid rgba(0,0,0,0.08)">
+        <input name="name" value="{{ item.name }}" required style="flex:1;border-radius:8px;padding:6px;border:1px solid rgba(0,0,0,0.08)">
+        <input type="file" name="image" accept="image/*" style="font-size:13px;max-width:150px;">
+        <button type="submit" class="btn add" style="padding:6px 10px;font-size:13px;">💾</button>
+      </div>
+
+      {% if item.image %}
+        <img src="/{{ item.image }}" alt="{{ item.name }}" style="width:100px;height:100px;object-fit:cover;border-radius:10px;margin-top:8px;">
+      {% endif %}
+    </form>
+
+    <p class="desc" style="margin:8px 0 4px 0;">{{ item.desc or "Belum ada deskripsi dari user 😋" }}</p>
+    <div class="rating-row" style="display:flex;align-items:center;gap:6px;">
+      <div class="stars">
+        {% for i in range(1,6) %}
+          <span class="star {% if i <= item.rating %}filled{% endif %}">★</span>
+        {% endfor %}
+      </div>
+      <small>{{ item.rating }}/5</small>
+    </div>
+
+    <form method="POST" action="/admin/delete/{{ item.id }}">
+      <button type="submit" class="btn danger" style="margin-top:8px;">🗑️ Hapus</button>
+    </form>
+  </div>
+  {% endfor %}
+
+  <a href="/logout" class="btn" style="margin-top:20px;background:#cbb79d;text-align:center;display:block;width:max-content;padding:8px 14px;border-radius:10px;margin:auto;">🚪 Logout</a>
+</div>
+{% endblock %}
+
